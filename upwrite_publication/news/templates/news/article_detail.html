@@ -1,0 +1,32 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="mb-0">{{ article.title }}</h1>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Posted in {{ article.section|title }} on {{ article.created_at|date:"F j, Y" }}</p>
+                    
+                    {% if article.image %}
+                        <div class="text-center mb-4">
+                            <img src="{{ article.image.url }}" class="img-fluid rounded" alt="Article Image">
+                        </div>
+                    {% endif %}
+                    
+                    <div class="article-content">
+                        {{ article.content|safe }}
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
