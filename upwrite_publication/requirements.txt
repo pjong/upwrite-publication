@@ -1,0 +1,5 @@
+Django==5.2
+Django==3.2.12
+django_ckeditor==6.7.2
+Faker==37.1.0
+Requests==2.32.3
